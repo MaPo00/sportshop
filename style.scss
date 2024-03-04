@@ -1,0 +1,111 @@
+$lightPink: #FFCCCC;
+$pink: #FF6666;
+$lightGrey: #333;
+
+// міксин для повторюваних стилів
+@mixin flexCenterColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// Застосовуємо стилі для body
+body {
+    background-color: $lightPink; 
+    font-family: Arial, sans-serif;
+    color: $lightGrey;
+}
+
+// Застосовуємо стилі для контейнера
+.container {
+    @include flexCenterColumn; // Використовуємо міксин 
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.centerbtw {
+    display: flex;
+    justify-content: space-between;
+}
+
+// стилі для заголовків
+h1 {
+    font-size: 2rem;
+}
+
+// стилі для абзаців
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: $pink;
+    text-decoration: none;
+    font-size: 2rem;
+    display: inline; 
+    margin-right: 40px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+// Стилі для таблиць  
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #FF9999;
+}
+
+th, td {
+    border: 1px solid #000; 
+    text-align: left;
+}
+
+// стилі для кнопок
+button[type="submit"] {
+    background-color: $pink;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($pink, 10%); //SASS функція darken()
+    }
+}
+
+// медіа запит для малих екранів
+@media (max-width: 768px) {
+    .centerbtw {
+        justify-content: flex-start; // Змінюємо на flex-start щоб блоки були в стовпець
+        flex-direction: column; 
+        align-items: center;
+    }
+}
+
+// стилі для секцій з додатковими класами
+#order {
+    background-color: lighten($lightPink, 5%); //SASS функція lighten()
+    border-radius: 10px; 
+}
+
+#block1 {
+    background-color: #FFE6CC;
+    border-radius: 10px; 
+}
+
+#block2 {
+    background-color: #CCFFCC;
+    border-radius: 10px;
+}
+
+#feedback {
+    background-color: #CCCCFF;
+    border-radius: 10px;
+}
+
+
